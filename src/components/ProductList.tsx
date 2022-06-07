@@ -3,20 +3,11 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Product from "./Product";
 import Container from "@mui/material/Container";
-import axios from "axios";
+import { productData } from "./mock";
 
 export default function ProductList({ cartCount }) {
-  const [loading, setLoading] = useState<boolean>(true);
-  const productData = JSON.parse(localStorage.getItem("products"));
-
-  useEffect(() => {
-    axios.get("http://localhost:6060/posts").then((response) => {
-      if (response?.status === 200) {
-        localStorage.setItem("products", JSON.stringify(response?.data));
-        setLoading(false);
-      }
-    });
-  }, []);
+  const [loading, setLoading] = useState<boolean>(false);
+  localStorage.setItem("products", JSON.stringify(productData));
 
   return (
     <Container style={{ marginTop: "2rem" }}>
