@@ -5,6 +5,7 @@ const path = require("path");
 const deps = require("./package.json").dependencies;
 module.exports = {
   output: {
+    // publicPath: "http://localhost:8102/",
     publicPath: "https://mfe-product.netlify.app/",
   },
   resolve: {
@@ -51,6 +52,7 @@ module.exports = {
       remotes: {},
       exposes: {
         "./ProductList": "./src/components/ProductList",
+        "./ProductBanner": "./src/components/ProductBanner",
       },
       shared: {
         ...deps,

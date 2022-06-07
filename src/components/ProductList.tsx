@@ -3,7 +3,8 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Product from "./Product";
 import Container from "@mui/material/Container";
-import { productData } from "./mock";
+import { productData } from "../mock/mock";
+import { mostRecentProduct } from "../mock/mostRecentProduct";
 
 export default function ProductList({ cartCount }) {
   const [loading, setLoading] = useState<boolean>(false);

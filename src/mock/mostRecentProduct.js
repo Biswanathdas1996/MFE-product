@@ -1,4 +1,4 @@
-export const productData = {
+export const mostRecentProduct = {
   data: [
     {
       id: 1,
@@ -25,6 +25,15 @@ export const productData = {
       description:
         "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
       price: 200,
+      stock: 10,
+    },
+    {
+      id: 4,
+      title: "Apple watch",
+      img: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/38-alu-silver-sport-white-nc-s3-1up?wid=940&hei=1112&fmt=png-alpha&.v=1594318675000",
+      description:
+        "Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging across all continents except Antarctica",
+      price: 1000,
       stock: 10,
     },
   ],
