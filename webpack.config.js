@@ -5,13 +5,11 @@ const path = require("path");
 const deps = require("./package.json").dependencies;
 module.exports = {
   output: {
-    publicPath: "http://localhost:8102/",
+    publicPath: "https://mfe-product.netlify.app/",
   },
-
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],
   },
-
   devServer: {
     contentBase: path.join(__dirname, "public"),
     port: 8102,
@@ -52,7 +50,7 @@ module.exports = {
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
-        "./ProductList": "./src/components/ProductList"
+        "./ProductList": "./src/components/ProductList",
       },
       shared: {
         ...deps,
