@@ -3,12 +3,23 @@ import Grid from "@mui/material/Grid";
 import Box from "@mui/material/Box";
 import Product from "./Product";
 import Container from "@mui/material/Container";
-import { productData } from "../mock/mock";
-import { mostRecentProduct } from "../mock/mostRecentProduct";
+import axios from "axios";
 
 export default function ProductList({ cartCount }) {
   const [loading, setLoading] = useState<boolean>(false);
-  localStorage.setItem("products", JSON.stringify(productData));
+  const [productData, setProductData] = useState<any>(null);
+
+  useEffect(() => {
+    axios
+      .get("https://62af1c073bbf46a3521c2bcf.mockapi.io/mock/products")
+      .then((response) => {
+        if (response?.status === 200) {
+          localStorage.setItem("products", JSON.stringify(response?.data));
+          setProductData(response?.data);
+          setLoading(false);
+        }
+      });
+  }, []);
 
   return (
     <Container style={{ marginTop: "2rem" }}>
@@ -16,7 +27,7 @@ export default function ProductList({ cartCount }) {
         <Box sx={{ flexGrow: 1 }}>
           <Grid container spacing={2}>
             {productData &&
-              productData?.data?.map((data) => {
+              productData?.map((data) => {
                 return (
                   <Grid item xs={12} sm={12} md={3} lg={3} key={data?.title}>
                     <Product data={data} cartCount={cartCount} />

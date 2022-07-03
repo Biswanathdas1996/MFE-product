@@ -5,7 +5,8 @@
     "build": "webpack --mode production",
     "build:dev": "webpack --mode development",
     "start": "webpack-dev-server --open --mode development",
-    "start:live": "webpack-dev-server --open --mode development --liveReload"
+    "start:live": "webpack-dev-server --open --mode development --liveReload",
+    "test": "snyk test"
   },
   "license": "MIT",
   "author": {
@@ -38,6 +39,7 @@
     "framer-motion": "^2.9.5",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "snyk": "^1.947.0",
     "valtio": "^0.4.8"
   }
 }

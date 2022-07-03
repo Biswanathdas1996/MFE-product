@@ -1,0 +1,17 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.22.1
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  SNYK-JS-PATHPARSE-1077067:
+    - '@emotion/styled > @emotion/babel-plugin > babel-plugin-macros > resolve > path-parse':
+        reason: skip it for now
+        expires: '2022-07-08T02:19:58.635Z'
+  SNYK-JS-FOLLOWREDIRECTS-2332181:
+    - axios > follow-redirects:
+        reason: skip it for now
+        expires: '2022-07-08T02:19:58.635Z'
+  SNYK-JS-FOLLOWREDIRECTS-2396346:
+    - axios > follow-redirects:
+        reason: skip it for now
+        expires: '2022-07-08T02:19:58.635Z'
+patch: {}

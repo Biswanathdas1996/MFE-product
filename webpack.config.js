@@ -5,8 +5,8 @@ const path = require("path");
 const deps = require("./package.json").dependencies;
 module.exports = {
   output: {
-    // publicPath: "http://localhost:8102/",
-    publicPath: "https://mfe-product.netlify.app/",
+    publicPath: "http://localhost:8102/",
+    // publicPath: "https://mfe-product.netlify.app/",
   },
   resolve: {
     extensions: [".tsx", ".ts", ".jsx", ".js", ".json"],

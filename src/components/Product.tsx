@@ -26,14 +26,17 @@ export default function Product({ data, cartCount }: Props) {
   const addToCartHandler = async (productId: number) => {
     const addedCartItems: any = JSON.parse(localStorage.getItem("cart"));
     const productData = JSON.parse(localStorage.getItem("products"));
-    const getAddedItem: any = productData?.data?.find(
-      (data) => data.id === productId
+    const getAddedItem: any = productData?.find(
+      (data: any) => data.id === productId
     );
-    let cart = [];
+    let cart: any = [];
     if (addedCartItems) {
       cart = [...addedCartItems];
     }
-    cart.push(getAddedItem);
+    if (getAddedItem) {
+      cart.push(getAddedItem);
+    }
+
     await localStorage.setItem("cart", JSON.stringify(cart));
     setOpenSuccessAlert(true);
 
@@ -71,7 +74,12 @@ export default function Product({ data, cartCount }: Props) {
           alt={data?.title}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+            id={`product_title_${data.id}`}
+          >
             {data?.title}
           </Typography>
           <Typography
@@ -82,12 +90,21 @@ export default function Product({ data, cartCount }: Props) {
           >
             ${parseFloat(data?.price).toFixed(2)}
           </Typography>
-          <Typography variant="body2" color="text.secondary">
+
+          <Typography
+            variant="body2"
+            sx={{
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              height: "4rem",
+            }}
+          >
             {data?.description}
           </Typography>
         </CardContent>
         <CardActions>
           <Button
+            id={`cart_${data?.id}`}
             onClick={() => addToCartHandler(data?.id)}
             variant="contained"
             color="warning"
