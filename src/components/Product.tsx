@@ -62,7 +62,7 @@ export default function Product({ data, cartCount }: Props) {
         anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
       >
         <Alert onClose={handleClose} severity="success" sx={{ width: "100%" }}>
-          Yeh...!! Item added successfully
+          Yeh....!! Item added successfully
         </Alert>
       </Snackbar>
 
